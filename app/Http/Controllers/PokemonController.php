@@ -12,6 +12,7 @@ class PokemonController extends Controller
     public function index()
     {
         $pokemons = Pokemon::all();
+
         return view("pokemon.list",
             [
                 "pokemons" => $pokemons
@@ -43,4 +44,13 @@ class PokemonController extends Controller
             ]
         );
     }
+    public function search(Request $request){
+    $search = $request->input('search');
+
+    $pokemons = Pokemon::query()
+        ->where('name', 'LIKE', "%{$search}%")
+        ->get();
+
+    return view('search', compact('pokemons'));
+}
 }

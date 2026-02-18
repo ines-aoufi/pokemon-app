@@ -12,6 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::rename('decks_pokemons', 'deck_pokemon');
+        Schema::table('deck_pokemon', function (Blueprint $table) {
+            $table->integer('quantity')->default(1);
+        });
     }
     
     /**

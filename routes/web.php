@@ -13,3 +13,5 @@ Route::get('/pokemon/{pokemon}', [App\Http\Controllers\PokemonController::class,
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/decks', [App\Http\Controllers\PokemonController::class, 'decks'])->name('deck.list');
 Route::get('/decks/{deck}', [App\Http\Controllers\PokemonController::class, 'decksDetail'])->name('deck.detail');
+
+Route::get('/search', [App\Http\Controllers\PokemonController::class, 'search'])->name('search');

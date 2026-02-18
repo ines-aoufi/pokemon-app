@@ -6,5 +6,7 @@
     <p>
       <a href="{{ route('pokemon.detail', ['pokemon' => $pokemon]) }}">{{ $pokemon->name }}</a>
     </p>
-    @endforeach
+    <p>{{ $pokemon->type1 }}</p>
+    <p>Quantity: {{ $pokemon->pivot->quantity }}</p>
+    @endforeach 
 </section>

@@ -10,7 +10,7 @@ class Pokemon extends Model
     protected $table = "pokemons";
     public function decks()
     {
-        return $this->belongsToMany(Deck::class);
+        return $this->belongsToMany(Deck::class)->withPivot('quantity');
     }
 }
 

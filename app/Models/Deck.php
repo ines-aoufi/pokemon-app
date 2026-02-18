@@ -10,6 +10,6 @@ class Deck extends Model
     protected $table = "decks";
     public function pokemons(): BelongsToMany
     {
-        return $this->belongsToMany(Pokemon::class, 'decks_pokemons', 'deck_id', 'pokemon_id');
+        return $this->belongsToMany(Pokemon::class)->withPivot('quantity');
     }
 }
