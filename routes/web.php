@@ -15,3 +15,4 @@ Route::get('/decks', [App\Http\Controllers\PokemonController::class, 'decks'])->
 Route::get('/decks/{deck}', [App\Http\Controllers\PokemonController::class, 'decksDetail'])->name('deck.detail');
 
 Route::get('/search', [App\Http\Controllers\PokemonController::class, 'search'])->name('search');
+Route::get('/filter', [App\Http\Controllers\PokemonController::class, 'filterType'])->name('filter');

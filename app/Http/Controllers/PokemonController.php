@@ -52,5 +52,17 @@ class PokemonController extends Controller
         ->get();
 
     return view('search', compact('pokemons'));
-}
+    }
+    public function filterType(Request $request)
+    {
+        $pokemons = Pokemon::all();
+        $types = $pokemons->pluck('type1')->unique();
+
+        $filtered_pokemons = Pokemon::query()
+        ->whereIn('type1', [$request->input('type')])
+        ->orWhereIn('type2', [$request->input('type')])
+        ->get();
+
+        return view('filter', compact('types', 'filtered_pokemons'));
+    }
 }

@@ -7,7 +7,8 @@
     @foreach ($pokemons as $pokemon)
         <div class="post-list">
             <p>{{ $pokemon->name }}</p>
-            <img src="{{ $pokemon->image }}">
+            <p>Type: {{ $pokemon->type1 }} {{ $pokemon->type2 }}</p>
+            <p>Generation {{ $pokemon->generation }}</p>
         </div>
     @endforeach
 @else 
