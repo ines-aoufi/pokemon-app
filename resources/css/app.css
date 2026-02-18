@@ -1,0 +1,101 @@
+  h2{
+    margin: 0;
+    padding: 0;
+  }
+  hr{
+    margin: 10px 0;
+    border: 1 solid gray;
+  }
+  p{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .pokedex-number{
+    position: relative;
+    top: 0px;
+    left: 0px;  
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+  }
+  .grass{
+    border: 3px solid #78C850;
+  }
+  .water{
+    border: 3px solid #6890F0;
+  }
+  .fire{
+    border: 3px solid #F08030;
+  }
+  .bug{
+    border: 3px solid #A8B820;
+  }
+  .normal{
+    border: 3px solid #A8A878;
+  }
+  .poison{
+    border: 3px solid #A040A0;
+  }
+  .ghost{
+    border: 3px solid #705898;
+  }
+  .fairy{
+    border: 3px solid #EE99AC;
+  }
+  .electric{
+    border: 3px solid #F8D030;
+  }
+  .fighting{
+    border: 3px solid #C03028;
+  }
+  .psychic{
+    border: 3px solid #F85888;
+  }
+  .rock{
+    border: 3px solid #B8A038;
+  }
+  .ground{
+    border: 3px solid #E0C068;
+  }
+  .dragon{
+    border: 3px solid #7038F8;
+  }
+  .dark{
+    border: 3px solid #705848;
+  }
+  .ice{
+    border: 3px solid #98D8D8;  
+  }
+  .steel{
+    border: 3px solid #B8B8D0;
+  }
+  .flying{
+    border: 3px solid #A890F0;
+  }
+
+  .pokemon-image{
+    width: 80%;
+    height: auto;
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;                 /* Universal support since 2021   */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+  }
+  .pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .pokemon-card {
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    width: 15%;
+  }
+
