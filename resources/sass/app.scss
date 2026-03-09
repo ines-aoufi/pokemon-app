@@ -1,8 +1,114 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
-
 // Variables
-@import 'variables';
+@use './variables';
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+body{
+  background-color: black;
+  font-family: $font-family;
+}
+
+h2{
+  margin: 0;
+  padding: 0;
+}
+hr{
+  margin: 10px 0;
+  border: 1 solid gray;
+}
+p{
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.pokedex-number{
+  position: relative;
+  top: 0px;
+  left: 0px;  
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
+}
+.grass{
+  border: 3px solid $grass-color;
+}
+.water{
+  border: 3px solid $water-color;
+}
+.fire{
+  border: 3px solid $fire-color;
+}
+.bug{
+  border: 3px solid $bug-color;
+}
+.normal{
+  border: 3px solid $normal-color;
+}
+.poison{
+  border: 3px solid $poison-color;
+}
+.ghost{
+  border: 3px solid $ghost-color;
+}
+.fairy{
+  border: 3px solid $fairy-color;
+}
+.electric{
+  border: 3px solid $electric-color;
+}
+.fighting{
+  border: 3px solid $fighting-color;
+}
+.psychic{
+  border: 3px solid $psychic-color;
+}
+.rock{
+  border: 3px solid $rock-color;
+}
+.ground{
+  border: 3px solid $ground-color;
+}
+.dragon{
+  border: 3px solid $dragon-color;
+}
+.dark{
+  border: 3px solid $dark-color;
+}
+.ice{
+  border: 3px solid $ice-color;  
+}
+.steel{
+  border: 3px solid $steel-color;
+}
+.flying{
+  border: 3px solid $flying-color;
+}
+
+.pokemon-image{
+  width: 80%;
+  height: auto;
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;          /* Firefox                        */
+  image-rendering: -o-crisp-edges;            /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated;                 /* Universal support since 2021   */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+}
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.pokemon-card {
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  width: 15%;
+}
+
+h3{
+  margin: 10px 0;
+  padding: 0;
+  font-size: 300px;
+}

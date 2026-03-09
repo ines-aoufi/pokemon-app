@@ -37,6 +37,7 @@ function clean($string) {
   <p>Defense: {{ $pokemon->defense }}</p>
   <p>Special Defense: {{ $pokemon->sp_defense }}</p>
   <p>Special Attack: {{ $pokemon->sp_attack }}</p>
+
 </section>
 
 <style>

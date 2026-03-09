@@ -9,16 +9,23 @@ use App\Models\Deck;
 
 class PokemonController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $pokemons = Pokemon::all();
+        $unfiltered_pokemons = Pokemon::all();
+        $types = $unfiltered_pokemons->pluck('type1')->unique();
 
-        return view("pokemon.list",
-            [
-                "pokemons" => $pokemons
-            ]
-        );
+        if($request->filled('type')) {
+
+        $pokemons = Pokemon::query()
+        ->whereIn('type1', [$request->input('type')])
+        ->orWhereIn('type2', [$request->input('type')])
+        ->get()
+        ->sortBy('id');
+        }
+        return view('pokemon.list', compact('types', 'pokemons', 'request'));
     }
+
     public function show(Pokemon $pokemon)
     {
         return view("pokemon.detail",
@@ -27,23 +34,7 @@ class PokemonController extends Controller
             ]
         );
     }
-    public function decks()
-    {
-        $decks = Deck::all();
-        return view("deck.list",
-            [
-                "decks" => $decks
-            ]
-        );
-    }
-    public function decksDetail(Deck $deck)
-    {
-        return view("deck.detail",
-            [
-                "deck" => $deck
-            ]
-        );
-    }
+    
     public function search(Request $request){
     $search = $request->input('search');
 
@@ -53,16 +44,5 @@ class PokemonController extends Controller
 
     return view('search', compact('pokemons'));
     }
-    public function filterType(Request $request)
-    {
-        $pokemons = Pokemon::all();
-        $types = $pokemons->pluck('type1')->unique();
-
-        $filtered_pokemons = Pokemon::query()
-        ->whereIn('type1', [$request->input('type')])
-        ->orWhereIn('type2', [$request->input('type')])
-        ->get();
-
-        return view('filter', compact('types', 'filtered_pokemons'));
-    }
+    
 }
