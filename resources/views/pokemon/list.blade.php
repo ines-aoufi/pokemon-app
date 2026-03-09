@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <title>Pokémons</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
-</head>
-
+@section('content')
 <body>
-
-<p>Filtrer par type :</p>
+<h1>Pokémons</h1>
+<div class="filter">
 <form action="{{ route('pokemon.index') }}" method="GET">
     <select name="type" required>
         <option value="">Select a type</option>
@@ -24,11 +17,12 @@
     </select>
     <button type="submit">Filter</button>
 </form>
+</div>
 
 <section>
   @if($pokemons->isNotEmpty())
   <div class="pokemon-list">
-    @foreach ($pokemons->take(20) as $pokemon)
+    @foreach ($pokemons as $pokemon)
     <div class="pokemon-card {{ $pokemon->type1 }}">
       <p class="pokedex-number">{{ $pokemon->pokedex_number }}</p>
       <h2>{{ $pokemon->name }}</h2>
@@ -37,8 +31,8 @@
       @if ($pokemon->type2)
       <p>Second type: {{ $pokemon->type2 }}</p>
       @endif
-      <a href="{{ route('pokemon.detail', ['pokemon' => $pokemon->id]) }}">View Details</a>
       <img class="pokemon-image" src="{{ $pokemon->image_url }}" alt="{{ $pokemon->name }}">
+      <button><a href="{{ route('pokemon.detail', ['pokemon' => $pokemon->id]) }}">View Details</a></button>
     </div>  
     @endforeach
   </div>
@@ -47,6 +41,8 @@
         <h2>No pokemons found</h2>
     </div>
 @endif
+{{ $pokemons->links() }}
 </section>
 </body>
 </html>
+@endsection

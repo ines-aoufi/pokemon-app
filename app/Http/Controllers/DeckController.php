@@ -66,4 +66,12 @@ class DeckController extends Controller
         return redirect()->route('deck.detail', ['deck' => $deck])
             ->with('success', 'Pokémon added to deck');
     }
+
+    public function removePokemon(Deck $deck, Pokemon $pokemon)
+    {
+        $deck->pokemons()->detach($pokemon->id);
+        
+        return redirect()->route('deck.detail', ['deck' => $deck])
+            ->with('success', 'Pokemon removed from deck');
+    }
 }

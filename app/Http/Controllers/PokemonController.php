@@ -11,18 +11,18 @@ class PokemonController extends Controller
 {
     public function index(Request $request)
     {
-        $pokemons = Pokemon::all();
         $unfiltered_pokemons = Pokemon::all();
         $types = $unfiltered_pokemons->pluck('type1')->unique();
 
-        if($request->filled('type')) {
+        $pokemons = Pokemon::query();
 
-        $pokemons = Pokemon::query()
-        ->whereIn('type1', [$request->input('type')])
-        ->orWhereIn('type2', [$request->input('type')])
-        ->get()
-        ->sortBy('id');
+        if($request->filled('type')) {
+            $pokemons = $pokemons
+                ->whereIn('type1', [$request->input('type')])
+                ->orWhereIn('type2', [$request->input('type')]);
         }
+
+        $pokemons = $pokemons->paginate(50);
         return view('pokemon.list', compact('types', 'pokemons', 'request'));
     }
 
