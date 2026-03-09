@@ -37,8 +37,9 @@
   <section class="pokemon-list">
   @foreach($deck->pokemons as $pokemon)
   <div class="pokemon-card {{ $pokemon->type1 }}">
+    <a href="{{ route('pokemon.detail', ['pokemon' => $pokemon]) }}">
     <p>
-      <a href="{{ route('pokemon.detail', ['pokemon' => $pokemon]) }}">{{ $pokemon->name }}</a>
+      <p>{{ $pokemon->name }}</p>
     </p>
     <p>{{ $pokemon->type1 }}</p>
     <img class="pokemon-image" src="{{ $pokemon->image_url }}" alt="{{ $pokemon->name }}">
@@ -49,6 +50,7 @@
       @method('DELETE')
       <button type="submit">Remove from deck</button>
     </form>
-  </div>
+  </a>
+</div>
   @endforeach
 @endsection
